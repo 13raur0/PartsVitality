@@ -1,17 +1,17 @@
-package com.braur0.RealisticDamage;
+package com.braur0.PartsVitality;
 
-import com.braur0.RealisticDamage.config.Lang;
-import com.braur0.RealisticDamage.config.PluginConfig;
-import com.braur0.RealisticDamage.listener.ArmorDamageListener;
-import com.braur0.RealisticDamage.listener.PlayerSetupListener;
-import com.braur0.RealisticDamage.listener.PlayerInventoryListener;
-import com.braur0.RealisticDamage.listener.PlayerStatusListener;
-import com.braur0.RealisticDamage.listener.PlayerHealingListener;
-import com.braur0.RealisticDamage.manager.ArmorStatsManager;
-import com.braur0.RealisticDamage.model.PartHP;
+import com.braur0.PartsVitality.config.Lang;
+import com.braur0.PartsVitality.config.PluginConfig;
+import com.braur0.PartsVitality.listener.ArmorDamageListener;
+import com.braur0.PartsVitality.listener.PlayerSetupListener;
+import com.braur0.PartsVitality.listener.PlayerInventoryListener;
+import com.braur0.PartsVitality.listener.PlayerStatusListener;
+import com.braur0.PartsVitality.listener.PlayerHealingListener;
+import com.braur0.PartsVitality.manager.ArmorStatsManager;
+import com.braur0.PartsVitality.model.PartHP;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class RealisticDamage extends JavaPlugin {
+public class PartsVitality extends JavaPlugin {
 
     private ArmorStatsManager armorStatsManager;
     private ArmorDamageListener armorDamageListener;

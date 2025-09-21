@@ -1,4 +1,4 @@
-package com.braur0.RealisticDamage.config;
+package com.braur0.PartsVitality.config;
 
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;

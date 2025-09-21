@@ -1,10 +1,5 @@
-package com.braur0.RealisticDamage.listener;
+package com.braur0.PartsVitality.listener;
 
-import com.braur0.RealisticDamage.config.Lang;
-import com.braur0.RealisticDamage.config.PluginConfig;
-import com.braur0.RealisticDamage.RealisticDamage;
-import com.braur0.RealisticDamage.manager.ArmorStatsManager;
-import com.braur0.RealisticDamage.model.PartHP;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
@@ -20,6 +15,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
+import com.braur0.PartsVitality.PartsVitality;
+import com.braur0.PartsVitality.config.Lang;
+import com.braur0.PartsVitality.config.PluginConfig;
+import com.braur0.PartsVitality.manager.ArmorStatsManager;
+import com.braur0.PartsVitality.model.PartHP;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -27,7 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerHealingListener implements Listener {
 
-    private final RealisticDamage plugin;
+    private final PartsVitality plugin;
     private final ArmorStatsManager armorStatsManager;
     private final ArmorDamageListener armorDamageListener;
     private final PlayerInventoryListener playerInventoryListener;
@@ -43,7 +44,7 @@ public class PlayerHealingListener implements Listener {
 
     private final PluginConfig config;
 
-    public PlayerHealingListener(RealisticDamage plugin, ArmorStatsManager armorStatsManager, ArmorDamageListener armorDamageListener, PlayerInventoryListener playerInventoryListener, PluginConfig config) {
+    public PlayerHealingListener(PartsVitality plugin, ArmorStatsManager armorStatsManager, ArmorDamageListener armorDamageListener, PlayerInventoryListener playerInventoryListener, PluginConfig config) {
         this.plugin = plugin;
         this.armorStatsManager = armorStatsManager;
         this.armorDamageListener = armorDamageListener;

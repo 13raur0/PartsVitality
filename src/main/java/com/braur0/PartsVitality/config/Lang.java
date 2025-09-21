@@ -1,6 +1,6 @@
-package com.braur0.RealisticDamage.config;
+package com.braur0.PartsVitality.config;
 
-import com.braur0.RealisticDamage.RealisticDamage;
+import com.braur0.PartsVitality.PartsVitality;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -15,7 +15,7 @@ public class Lang {
 
     private static final Map<String, String> messages = new HashMap<>();
 
-    public static void load(RealisticDamage plugin) {
+    public static void load(PartsVitality plugin) {
         String lang = plugin.getConfig().getString("language", "en");
         File langFile = new File(plugin.getDataFolder(), "messages_" + lang + ".yml");
 

@@ -1,6 +1,5 @@
-package com.braur0.RealisticDamage.listener;
+package com.braur0.PartsVitality.listener;
 
-import com.braur0.RealisticDamage.RealisticDamage;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityEvent;
@@ -14,6 +13,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
+import com.braur0.PartsVitality.PartsVitality;
+
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,10 +27,10 @@ public class PlayerStatusListener implements Listener {
     private static final int INTERVAL_HIGH = 70;     // 3.5 seconds
 
 
-    private final RealisticDamage plugin;
+    private final PartsVitality plugin;
     private final Map<UUID, BukkitTask> soundTasks = new ConcurrentHashMap<>();
 
-    public PlayerStatusListener(RealisticDamage plugin) {
+    public PlayerStatusListener(PartsVitality plugin) {
         this.plugin = plugin;
     }
 

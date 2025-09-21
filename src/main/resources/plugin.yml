@@ -1,6 +1,6 @@
-name: RealisticDamage
+name: PartsVitality
 version: 1.0.0
-main: com.braur0.RealisticDamage.RealisticDamage
+main: com.braur0.PartsVitality.PartsVitality
 api-version: 1.20
 author: braur0
 description: Implements a body part health system.

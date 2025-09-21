@@ -1,4 +1,4 @@
-package com.braur0.RealisticDamage.model;
+package com.braur0.PartsVitality.model;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

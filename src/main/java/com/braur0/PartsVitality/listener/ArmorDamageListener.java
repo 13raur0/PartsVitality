@@ -1,10 +1,6 @@
-package com.braur0.RealisticDamage.listener;
+package com.braur0.PartsVitality.listener;
 
-import com.braur0.RealisticDamage.config.PluginConfig;
 import org.bukkit.util.BoundingBox;
-import com.braur0.RealisticDamage.RealisticDamage;
-import com.braur0.RealisticDamage.manager.ArmorStatsManager;
-import com.braur0.RealisticDamage.model.PartHP;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.attribute.Attribute;
@@ -24,18 +20,23 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.Sound;
 import org.bukkit.util.Vector;
 
+import com.braur0.PartsVitality.PartsVitality;
+import com.braur0.PartsVitality.config.PluginConfig;
+import com.braur0.PartsVitality.manager.ArmorStatsManager;
+import com.braur0.PartsVitality.model.PartHP;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class ArmorDamageListener implements Listener {
 
-    private final RealisticDamage plugin;
+    private final PartsVitality plugin;
     private final ArmorStatsManager armorStatsManager;
 
     private final PluginConfig config;
 
-    public ArmorDamageListener(RealisticDamage plugin, ArmorStatsManager armorStatsManager, PluginConfig config) {
+    public ArmorDamageListener(PartsVitality plugin, ArmorStatsManager armorStatsManager, PluginConfig config) {
         this.plugin = plugin;
         this.armorStatsManager = armorStatsManager;
         this.config = config;

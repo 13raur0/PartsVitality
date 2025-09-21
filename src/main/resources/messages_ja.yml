@@ -1,7 +1,7 @@
-# 日本語メッセージ for RealisticDamage
+# 日本語メッセージ for PartsVitality
 
-plugin-enabled: "§aRealisticDamageが有効になりました！"
-plugin-disabled: "§cRealisticDamageが無効になりました。"
+plugin-enabled: "§aPartsVitalityが有効になりました！"
+plugin-disabled: "§cPartsVitalityが無効になりました。"
 
 inventory-display-part-hp: "§e部位HP表示に切り替えました。"
 inventory-display-durability: "§a防具の耐久値表示に切り替えました。"

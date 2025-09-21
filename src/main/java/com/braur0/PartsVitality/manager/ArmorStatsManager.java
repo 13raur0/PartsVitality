@@ -1,7 +1,7 @@
-package com.braur0.RealisticDamage.manager;
+package com.braur0.PartsVitality.manager;
 
-import com.braur0.RealisticDamage.RealisticDamage;
-import com.braur0.RealisticDamage.model.PartHP;
+import com.braur0.PartsVitality.PartsVitality;
+import com.braur0.PartsVitality.model.PartHP;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
@@ -10,10 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ArmorStatsManager {
 
-    private final RealisticDamage plugin;
+    private final PartsVitality plugin;
     private final Map<UUID, PartHP> playerPartHP = new ConcurrentHashMap<>();
 
-    public ArmorStatsManager(RealisticDamage plugin) {
+    public ArmorStatsManager(PartsVitality plugin) {
         this.plugin = plugin;
     }
 

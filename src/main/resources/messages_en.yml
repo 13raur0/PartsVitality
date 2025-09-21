@@ -1,7 +1,7 @@
-# English messages for RealisticDamage
+# English messages for PartsVitality
 
-plugin-enabled: "§aRealisticDamage has been enabled!"
-plugin-disabled: "§cRealisticDamage has been disabled."
+plugin-enabled: "§aPartsVitality has been enabled!"
+plugin-disabled: "§cPartsVitality has been disabled."
 
 inventory-display-part-hp: "§eSwitched to Part HP display."
 inventory-display-durability: "§aSwitched to Durability display."

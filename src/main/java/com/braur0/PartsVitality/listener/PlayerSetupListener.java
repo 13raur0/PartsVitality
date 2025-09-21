@@ -1,9 +1,5 @@
-package com.braur0.RealisticDamage.listener;
+package com.braur0.PartsVitality.listener;
 
-import com.braur0.RealisticDamage.listener.ArmorDamageListener;
-import com.braur0.RealisticDamage.RealisticDamage;
-import com.braur0.RealisticDamage.model.PartHP;
-import com.braur0.RealisticDamage.manager.ArmorStatsManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,14 +8,20 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.potion.PotionEffect;
+
+import com.braur0.PartsVitality.PartsVitality;
+import com.braur0.PartsVitality.listener.ArmorDamageListener;
+import com.braur0.PartsVitality.manager.ArmorStatsManager;
+import com.braur0.PartsVitality.model.PartHP;
+
 import org.bukkit.attribute.Attribute;
 
 public class PlayerSetupListener implements Listener {
-    private final RealisticDamage plugin;
+    private final PartsVitality plugin;
     private final ArmorStatsManager armorStatsManager;
     private final ArmorDamageListener armorDamageListener;
     
-    public PlayerSetupListener(RealisticDamage plugin, ArmorStatsManager armorStatsManager, ArmorDamageListener armorDamageListener) {
+    public PlayerSetupListener(PartsVitality plugin, ArmorStatsManager armorStatsManager, ArmorDamageListener armorDamageListener) {
         this.plugin = plugin;
         this.armorStatsManager = armorStatsManager;
         this.armorDamageListener = armorDamageListener;

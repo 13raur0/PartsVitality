@@ -1,13 +1,15 @@
-package com.braur0.RealisticDamage.listener;
+package com.braur0.PartsVitality.listener;
 
-import com.braur0.RealisticDamage.config.Lang;
-import com.braur0.RealisticDamage.RealisticDamage;
-import com.braur0.RealisticDamage.manager.ArmorStatsManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryType;
+
+import com.braur0.PartsVitality.PartsVitality;
+import com.braur0.PartsVitality.config.Lang;
+import com.braur0.PartsVitality.manager.ArmorStatsManager;
+
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 
@@ -17,13 +19,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerInventoryListener implements Listener {
 
-    private final RealisticDamage plugin;
+    private final PartsVitality plugin;
     private final ArmorStatsManager armorStatsManager;
 
     // A set to manage players who are currently viewing part HP
     private final Set<UUID> viewingPartHP = ConcurrentHashMap.newKeySet();
 
-    public PlayerInventoryListener(RealisticDamage plugin, ArmorStatsManager armorStatsManager) {
+    public PlayerInventoryListener(PartsVitality plugin, ArmorStatsManager armorStatsManager) {
         this.plugin = plugin;
         this.armorStatsManager = armorStatsManager;
     }

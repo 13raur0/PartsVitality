@@ -1,120 +1,118 @@
 # PartsVitality
 
-**マインクラフトに、"Escape from Tarkov"のようなハードコアなダメージ・治療システムを導入するプラグインです。**
+**A hardcore damage and healing system for Minecraft, inspired by "Escape from Tarkov."**
 
-PartsVitality は、マインクラフトの標準的な体力システムを完全に刷新し、詳細な部位 HP システムを導入します。
-このプラグインは、プレイヤーにより戦術的な思考と慎重な怪我の管理を要求します。どの部位を狙い、どの部位を守るか。
-常に自身の体の状態と周囲の環境を意識し、一瞬の油断が命取りになるような、緊張感のある立ち回りが重要になります。
+PartsVitality completely overhauls Minecraft's standard health system by introducing a detailed part-based HP system. This plugin demands more tactical thinking, careful injury management, and a new level of awareness from players. Deciding which body part to target and which to protect, constantly monitoring your own condition and surroundings, and engaging in tense gameplay where a single moment of carelessness can be fatal becomes crucial.
 
-## 主な機能
+## Key Features
 
-- **部位 HP システム**: 体力は単一のゲージではなく、「頭」「胴」「脚」「足」の 4 つの部位で個別に管理されます。
-- **精密なヒット判定**: Ray Tracing（光線追跡）技術により、攻撃が体のどの部位に当たったかを正確に判定します。ヘッドショットや足を狙う戦術が重要になります！
-- **リアルな負傷ペナルティ**:
-  - **デバフ効果**: 特定の部位にダメージを受けると、それに応じたデバフ（例：頭部ダメージで吐き気、脚部ダメージで移動速度低下）が発生します。
-  - **部位破壊**: 部位の HP が 0 になるとその部位は「破壊」され、リスポーンするまでプレイヤーの最大 HP が減少します。
-- **手動治療システム**:
-  - **自然回復の無効化**: 満腹度による体力の自動回復は行われません。すべての回復は手動で行う必要があります。
-  - **部位ごとの治療**: `config.yml`で設定されたアイテムを使い、インベントリ内で負傷した部位に対応する防具をクリックすることで治療します。
-  - **手術による重傷治療**: 「破壊」された部位は、通常のアイテムでは治療できません。特別な「手術」用アイテムで応急処置をすることで、再び通常の治療が可能になります。
-- **防具の重要性の向上**:
-  - **部位の保護**: 防具は、それが覆う特定の部位の HP を守るという、極めて重要な役割を果たします。
-  - **現実的な消耗**: 防具の耐久値は、受けたダメージ量に応じて大きく減少するように設定可能で、防具は管理すべき重要なリソースとなります。
-- **高いカスタマイズ性**: 部位 HP、ダメージ倍率、治療アイテム、デバフなど、プラグインのほぼすべての要素を`config.yml`で自由に調整できます。
-- **多言語対応**: プレイヤーに表示されるすべてのメッセージは翻訳可能です。デフォルトで英語（`en`）と日本語（`ja`）に対応しています。
+- **Part-Based HP System**: Health is not a single bar but is managed individually across four body parts: "Head," "Chest," "Legs," and "Feet."
+- **Precise Hit Detection**: Using Ray Tracing technology, the plugin accurately determines which body part an attack hits. Tactics like headshots or aiming for the legs become vital!
+- **Realistic Injury Penalties**:
+  - **Debuff Effects**: Taking damage to a specific part triggers corresponding debuffs (e.g., Nausea from head damage, Slowness from leg damage).
+  - **Broken Parts**: When a part's HP drops to 0, it becomes "broken," reducing the player's maximum HP until they respawn.
+- **Manual Healing System**:
+  - **No Natural Regeneration**: Automatic health regeneration from saturation is disabled. All healing must be done manually.
+  - **Part-Specific Healing**: Use items defined in `config.yml` to heal by clicking the corresponding armor piece for the injured part in the inventory.
+  - **Surgery for Critical Injuries**: "Broken" parts cannot be healed with regular items. A special "surgery" item is required for first aid, making the part treatable again.
+- **Enhanced Importance of Armor**:
+  - **Part Protection**: Armor plays a crucial role in protecting the specific body part it covers.
+  - **Realistic Wear and Tear**: Armor durability can be configured to decrease significantly based on the damage received, making it a critical resource to manage.
+- **Highly Customizable**: Nearly every aspect of the plugin—part HP, damage multipliers, healing items, debuffs, and more—can be freely adjusted in `config.yml`.
+- **Multi-Language Support**: All messages displayed to players are translatable. It supports English (`en`) and Japanese (`ja`) by default.
 
-## 導入方法
+## Installation
 
-1.  最新の`.jar`ファイルをダウンロードします。
-2.  ダウンロードした`PartsVitality-1.0.0.jar`ファイルを、サーバーの`plugins/`フォルダに配置します。
-3.  サーバーを再起動またはリロードします。`plugins/PartsVitality/`フォルダ内に、設定ファイル（`config.yml`）と言語ファイル（`messages_en.yml`, `messages_ja.yml`）が自動的に生成されます。
+1.  Download the latest `.jar` file.
+2.  Place the downloaded `PartsVitality-1.0.0.jar` file into your server's `plugins/` folder.
+3.  Restart or reload the server. The configuration file (`config.yml`) and language files (`messages_en.yml`, `messages_ja.yml`) will be automatically generated in the `plugins/PartsVitality/` folder.
 
-## 設定 (`config.yml`)
+## Configuration (`config.yml`)
 
-`config.yml`ファイルを編集することで、サーバーの難易度やプレイスタイルに合わせて、プラグインの動作を細かく調整できます。
+You can edit the `config.yml` file to fine-tune the plugin's behavior to match your server's difficulty and playstyle.
 
 <details>
-<summary><strong>クリックしてconfig.ymlの詳細な解説を表示</strong></summary>
+<summary><strong>Click to see a detailed explanation of config.yml</strong></summary>
 
 ```yaml
-# 使用する言語を設定します (例: en, ja)
-language: "ja"
+# Set the language to use (e.g., en, ja)
+language: "en"
 
-# 部位ごとの最大HP
+# Max HP for each body part
 parts:
   head:
     max-hp: 20.0
   chest:
     max-hp: 29.0
-  # ... 以下同様
+  # ... and so on
 
-# ダメージ計算に関する設定
+# Damage calculation settings
 damage:
-  # バニラのハートダメージを、部位ダメージに変換する際の倍率です。
-  # 数値を大きくすると、より少ない攻撃で部位が破壊されやすくなり、難易度が上がります。
+  # Multiplier to convert vanilla heart damage to part damage.
+  # A higher value makes parts break more easily, increasing difficulty.
   damage-multiplier: 5.0
-  # ヒット判定の精度。数値を大きくすると負荷は減りますが、精度が落ちます。(推奨: 0.1 ~ 0.5)
+  # Precision of the hit detection. Larger values reduce server load but decrease accuracy. (Recommended: 0.1 ~ 0.5)
   ray-trace-step: 0.1
 
-# 通常の治療に関する設定
+# Settings for regular healing
 healing:
-  # 治療にかかる時間（秒）
+  # Time required for healing (in seconds).
   duration-seconds: 3
-  # ... 効果音などの設定 ...
+  # ... sound settings ...
 
-# 手術（破壊された部位の治療）に関する設定
+# Settings for surgery (healing broken parts)
 surgery:
-  # 手術にかかる時間（秒）
+  # Time required for surgery (in seconds).
   duration-seconds: 10
-  # 手術によって回復する部位HPの量。1.0に設定すると、部位が使用可能になり、通常の治療ができるようになります。
+  # Amount of part HP restored by surgery. Setting this to 1.0 will make the part usable again and allow normal healing.
   restored-hp: 1.0
-  # ... 効果音などの設定 ...
+  # ... sound settings ...
 
-# 部位が1つ破壊されるごとに減少する最大体力（2.0 = ハート1個分）
-health-penalty-per-broken-part: 5.0
+# Max health penalty for each broken part (2.0 = 1 heart).
+health-penalty-per-broken-part: 5.0 # 2.5 hearts
 
-# 通常の治療に使用するアイテムと、その回復量
+# Items used for regular healing and their heal amount.
 healing-items:
   IRON_INGOT: 10.0
   GOLD_INGOT: 15.0
 
-# 手術に使用するアイテム（HPが0の部位にのみ使用可能）
+# Items used for surgery (only usable on parts with 0 HP).
 surgery-items:
   DIAMOND: true
 
-# 各部位のHPが特定の割合を下回った際に適用されるデバフ効果
+# Debuffs applied when a part's HP falls below a certain threshold.
 debuffs:
   head:
-    - threshold: 0.5 # 50%以下
+    - threshold: 0.5 # 50% or less
       effect: CONFUSION
       level: 0
-  # ... 以下同様
+  # ... and so on
 
-# 耐久値に関する設定
+# Durability settings
 durability:
-  # trueにすると、受けた部位ダメージに応じて防具の耐久値が大きく減少します。
+  # If true, armor durability decreases based on the amount of part damage received.
   use-custom-durability-damage: true
-  # 部位ダメージが「いくら」入るごとに、防具の耐久値を1減らすか設定します。
-  # 数値を小さくすると、防具の消耗が激しくなります。0.4は革防具を基準に調整されています。
+  # How much part damage equals 1 point of durability damage.
+  # A smaller value means armor wears out faster. 0.4 is balanced around leather armor.
   damage-per-durability-point: 0.4
 ```
 
 </details>
 
-## 遊び方
+## How to Play
 
-- **体力の確認**: インベントリ内で、いずれかの防具にカーソルを合わせて **Shift + 右クリック** すると、部位 HP 表示モードに切り替わります。防具の耐久値バーが、その部位の HP を示すようになります。もう一度同じ操作をすると元に戻ります。
+- **Check Part HP**: In your inventory, hover over any armor piece and **Shift + Right-Click** to switch to Part HP display mode. The armor's durability bar will now show the HP of that part. Repeat the action to switch back.
 
-  !部位 HP 表示の切り替え
+  !Toggling Part HP Display
 
-- **部位の治療**: 治療アイテム（例：鉄インゴット）をカーソルに持ち、インベントリ内で治療したい部位の防具を**左クリック**します。タイマーが開始され、完了すると部位 HP が回復します。
+- **Heal a Part**: Hold a healing item (e.g., Iron Ingot) on your cursor and **Left-Click** the armor piece of the part you want to heal in your inventory. A timer will start, and upon completion, the part's HP will be restored.
 
-  !通常の治療プロセス
+  !Normal Healing Process
 
-- **手術の実行**: 部位が破壊された（HP が 0 になった）場合、まず手術アイテム（例：ダイヤモンド）でその部位を治療する必要があります。これにより部位 HP がわずかに回復し、再び通常の治療アイテムが使用可能になります。
+- **Perform Surgery**: If a part is broken (HP is 0), you must first treat it with a surgery item (e.g., Diamond). This will slightly restore the part's HP, allowing it to be healed with regular healing items again.
 
-  !手術プロセス
+  !Surgery Process
 
-## ライセンス
+## License
 
-このプラグインは MIT License の下で公開されています。
+This plugin is released under the MIT License.

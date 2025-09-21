@@ -24,7 +24,7 @@ PartsVitality completely overhauls Minecraft's standard health system by introdu
 ## Installation
 
 1.  Download the latest `.jar` file.
-2.  Place the downloaded `PartsVitality-1.0.0.jar` file into your server's `plugins/` folder.
+2.  Place the downloaded `PartsVitality-v1.0.0-beta.1.jar` file into your server's `plugins/` folder.
 3.  Restart or reload the server. The configuration file (`config.yml`) and language files (`messages_en.yml`, `messages_ja.yml`) will be automatically generated in the `plugins/PartsVitality/` folder.
 
 ## Configuration (`config.yml`)

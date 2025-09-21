@@ -68,17 +68,13 @@ public class ArmorDamageListener implements Listener {
                     double boxHeight = playerBox.getHeight();
                     double hitY = hitPoint.getY();
 
-                    // Determine based on the relative height from the bottom of the hitbox
-                    if (hitY >= boxMinY + boxHeight * 0.85) { // Top 15%
                     if (hitY >= boxMinY + boxHeight * 0.85) { // Top 15% (Head)
                         targetParts.add(PartHP.HEAD);
-                    } else if (hitY >= boxMinY + boxHeight * 0.4) { // Middle area
                     } else if (hitY >= boxMinY + boxHeight * 0.4) { // Middle area (Chest)
                         targetParts.add(PartHP.CHEST);
-                    } else if (hitY >= boxMinY + boxHeight * 0.1) { // Knee area
                     } else if (hitY >= boxMinY + boxHeight * 0.1) { // Knee area (Legs)
                         targetParts.add(PartHP.LEGS);
-                    } else { // Feet area
+                    } else { // Feet area (Feet)
                         targetParts.add(PartHP.FEET);
                     }
                 } else {

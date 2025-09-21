@@ -122,12 +122,16 @@ public class PlayerHealingListener implements Listener {
         double maxPartHP = PartHP.getMaxHPPerPart(partName);
         if (currentPartHP >= maxPartHP) {
             player.sendMessage(Lang.get("healing-fail-healthy"));
+            // Force an inventory update to prevent item duplication bugs
+            plugin.getServer().getScheduler().runTask(plugin, player::updateInventory);
             return;
         }
 
         // Cannot heal if part HP is 0 (destroyed)
         if (currentPartHP <= 0) {
             player.sendMessage(Lang.get("healing-fail-broken"));
+            // Force an inventory update
+            plugin.getServer().getScheduler().runTask(plugin, player::updateInventory);
             return;
         }
 
@@ -203,6 +207,8 @@ public class PlayerHealingListener implements Listener {
         // Cannot perform surgery if the part is not destroyed
         if (currentPartHP > 0) {
             player.sendMessage(Lang.get("surgery-fail-not-broken"));
+            // Force an inventory update
+            plugin.getServer().getScheduler().runTask(plugin, player::updateInventory);
             return;
         }
 
@@ -273,7 +279,8 @@ public class PlayerHealingListener implements Listener {
             // Remove the glowing effect
             if (healingSlots.remove(player.getUniqueId()) != null) {
                 PartHP partHP = armorStatsManager.getOrCreatePartHP(player);
-                partHP.updateArmorDisplay(player, false, -1);
+                // Update the display to remove the glow, while respecting the player's current view mode.
+                partHP.updateArmorDisplay(player, playerInventoryListener.isViewingPartHP(player), -1);
             }
         }
     }

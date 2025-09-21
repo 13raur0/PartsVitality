@@ -92,10 +92,12 @@ public class PartHP {
      * @param clickedSlot The slot number that was clicked.
      */
     public void updateArmorDisplay(Player player, boolean showPartHP, int clickedSlot) {
-        // Armor slots are: 0=feet, 1=legs, 2=chest, 3=head
-        ItemStack[] armorItems = player.getInventory().getArmorContents();
-        for (int i = 0; i < armorItems.length; i++) {
-            ItemStack armor = armorItems[i];
+        // Iterate over armor slots directly to ensure changes are applied.
+        // Using getArmorContents() returns a copy, so modifications won't be saved.
+        for (EquipmentSlot equipmentSlot : List.of(EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET)) {
+            ItemStack armor = player.getInventory().getItem(equipmentSlot);
+            int inventoryArrayIndex = getInventoryArrayIndex(equipmentSlot);
+
             if (armor == null || armor.getType().isAir()) continue;
 
             ItemMeta meta = armor.getItemMeta();
@@ -103,10 +105,9 @@ public class PartHP {
 
             if (showPartHP) {
                 // Store the original durability
-                originalDamageMap.putIfAbsent(i, damageable.getDamage());
+                originalDamageMap.putIfAbsent(inventoryArrayIndex, damageable.getDamage());
 
                 // Convert part HP to a durability bar
-                EquipmentSlot equipmentSlot = armor.getType().getEquipmentSlot();
                 String partName = getPartNameFromEquipmentSlot(equipmentSlot);
                 if (partName == null) continue;
 
@@ -137,13 +138,25 @@ public class PartHP {
 
             } else {
                 // Revert to the saved original durability
-                Integer originalDamage = originalDamageMap.get(i);
+                Integer originalDamage = originalDamageMap.get(inventoryArrayIndex);
                 if (originalDamage != null) damageable.setDamage(originalDamage);
                 // Remove all enchantments
                 meta.removeEnchant(Enchantment.DURABILITY);
             }
             armor.setItemMeta(meta);
+            // Set the modified item back to the slot
+            player.getInventory().setItem(equipmentSlot, armor);
         }
         if (!showPartHP) originalDamageMap.clear(); // Clear saved data when reverting the display
+    }
+
+    private int getInventoryArrayIndex(EquipmentSlot slot) {
+        return switch (slot) {
+            case HEAD -> 3;
+            case CHEST -> 2;
+            case LEGS -> 1;
+            case FEET -> 0;
+            default -> -1;
+        };
     }
 }

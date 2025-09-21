@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryType;
 
+import com.braur0.PartsVitality.model.PartHP;
 import com.braur0.PartsVitality.PartsVitality;
 import com.braur0.PartsVitality.config.Lang;
 import com.braur0.PartsVitality.manager.ArmorStatsManager;
@@ -13,6 +14,7 @@ import com.braur0.PartsVitality.manager.ArmorStatsManager;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 
+import org.bukkit.inventory.ItemStack;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -44,18 +46,32 @@ public class PlayerInventoryListener implements Listener {
             if (viewingPartHP.contains(playerUUID)) {
                 viewingPartHP.remove(playerUUID);
                 player.sendMessage(Lang.get("inventory-display-durability"));
-                armorStatsManager.getOrCreatePartHP(player).updateArmorDisplay(player, false, -1);
+                PartHP partHP = armorStatsManager.getOrCreatePartHP(player);
+                partHP.updateArmorDisplay(player, false, -1);
             } else {
                 viewingPartHP.add(playerUUID);
                 player.sendMessage(Lang.get("inventory-display-part-hp"));
                 // Pass -1 to avoid making the slot glow, as specifying a slot would cause it to glow
-                armorStatsManager.getOrCreatePartHP(player).updateArmorDisplay(player, true, -1);
+                PartHP partHP = armorStatsManager.getOrCreatePartHP(player);
+                partHP.updateArmorDisplay(player, true, -1);
             }
             player.updateInventory();
-        } else if (viewingPartHP.contains(playerUUID) && event.getSlotType() == InventoryType.SlotType.ARMOR) {
-            // In part HP display mode, cancel clicks on armor slots only to prevent swapping or moving armor.
-            // This allows for item movement within the inventory and healing actions.
-            event.setCancelled(true);
+            return; // End processing here
+        }
+
+        // If the player is in part HP display mode, prevent any armor manipulation.
+        if (viewingPartHP.contains(playerUUID)) {
+            // Prevent equipping armor via Shift+Click from the main inventory.
+            if (event.isShiftClick()) {
+                ItemStack clickedItem = event.getCurrentItem();
+                if (clickedItem != null && isArmor(clickedItem)) {
+                    event.setCancelled(true);
+                }
+            }
+            // Prevent swapping/moving armor in the armor slots.
+            else if (event.getSlotType() == InventoryType.SlotType.ARMOR) {
+                event.setCancelled(true);
+            }
         }
     }
 
@@ -75,5 +91,18 @@ public class PlayerInventoryListener implements Listener {
 
     public void resetViewingState(Player player) {
         viewingPartHP.remove(player.getUniqueId());
+    }
+
+    /**
+     * Checks if the given ItemStack is an armor piece.
+     * @param item The ItemStack to check.
+     * @return true if it is an armor piece, false otherwise.
+     */
+    private boolean isArmor(ItemStack item) {
+        if (item == null) return false;
+        String typeName = item.getType().name();
+        return typeName.endsWith("_HELMET") || typeName.endsWith("_CHESTPLATE") ||
+               typeName.endsWith("_LEGGINGS") || typeName.endsWith("_BOOTS") ||
+               typeName.equals("ELYTRA");
     }
 }

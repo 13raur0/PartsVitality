@@ -79,7 +79,6 @@ public class ArmorDamageListener implements Listener {
                     } else if (hitY >= boxMinY + boxHeight * 0.1) { // Knee area (Legs)
                         targetParts.add(PartHP.LEGS);
                     } else { // Feet area
-                    } else { // Feet area (Feet)
                         targetParts.add(PartHP.FEET);
                     }
                 } else {

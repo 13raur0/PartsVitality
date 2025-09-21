@@ -103,15 +103,15 @@ durability:
 
 - **Check Part HP**: In your inventory, hover over any armor piece and **Shift + Right-Click** to switch to Part HP display mode. The armor's durability bar will now show the HP of that part. Repeat the action to switch back.
 
-  !Toggling Part HP Display
+  ![PV_Switch_PartHP](https://github.com/user-attachments/assets/1a53fee7-3a96-4d2a-b711-e8a35c0db0c5)
 
 - **Heal a Part**: Hold a healing item (e.g., Iron Ingot) on your cursor and **Left-Click** the armor piece of the part you want to heal in your inventory. A timer will start, and upon completion, the part's HP will be restored.
 
-  !Normal Healing Process
+  ![PV_healing_part](https://github.com/user-attachments/assets/9010611c-368e-47ea-8db8-30036f27538a)
 
 - **Perform Surgery**: If a part is broken (HP is 0), you must first treat it with a surgery item (e.g., Diamond). This will slightly restore the part's HP, allowing it to be healed with regular healing items again.
 
-  !Surgery Process
+  ![PV_surgery_part](https://github.com/user-attachments/assets/b82d01d0-96b0-4f68-a3ab-ca2659c9b1c7)
 
 ## License
 

@@ -54,8 +54,12 @@ public class PlayerSetupListener implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        // Keep part HP data even when the player quits
-        // armorStatsManager.removePlayer(player);
+
+        // If the player is in part HP display mode when they quit,
+        // revert the display to ensure armor data is saved correctly.
+        if (plugin.getPlayerInventoryListener().isViewingPartHP(player)) {
+            armorStatsManager.getOrCreatePartHP(player).updateArmorDisplay(player, false, -1);
+        }
         // Reset the inventory display state
         plugin.getPlayerInventoryListener().resetViewingState(player);
     }

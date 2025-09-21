@@ -16,6 +16,7 @@ PartsVitality completely overhauls Minecraft's standard health system by introdu
   - **Part-Specific Healing**: Use items defined in `config.yml` to heal by clicking the corresponding armor piece for the injured part in the inventory.
   - **Surgery for Critical Injuries**: "Broken" parts cannot be healed with regular items. A special "surgery" item is required for first aid, making the part treatable again.
 - **Enhanced Importance of Armor**:
+- **No Resource Pack Required**: All visual feedback, including the part HP display, is achieved using vanilla mechanics. This means players don't need to download anything extra to get the full experience!
   - **Part Protection**: Armor plays a crucial role in protecting the specific body part it covers.
   - **Realistic Wear and Tear**: Armor durability can be configured to decrease significantly based on the damage received, making it a critical resource to manage.
 - **Highly Customizable**: Nearly every aspect of the plugin—part HP, damage multipliers, healing items, debuffs, and more—can be freely adjusted in `config.yml`.

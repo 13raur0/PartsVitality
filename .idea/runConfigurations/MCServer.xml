@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MCServer" type="JarApplication">
+    <option name="JAR_PATH" value="$PROJECT_DIR$/../MCServer_1.21.1/purpur.jar" />
+    <option name="PROGRAM_PARAMETERS" value="nogui" />
+    <option name="WORKING_DIRECTORY" value="C:\Dev\devplugin" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <module name="devplugin" />
+    <method v="2" />
+  </configuration>
+</component>

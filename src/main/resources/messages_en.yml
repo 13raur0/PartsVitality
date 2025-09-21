@@ -1,0 +1,17 @@
+# English messages for RealisticDamage
+
+plugin-enabled: "§aRealisticDamage has been enabled!"
+plugin-disabled: "§cRealisticDamage has been disabled."
+
+inventory-display-part-hp: "§eSwitched to Part HP display."
+inventory-display-durability: "§aSwitched to Durability display."
+
+healing-start: "§aStarting treatment... ({duration} seconds)"
+healing-complete: "§aTreatment complete!"
+healing-fail-healthy: "§eThis part is already healthy!"
+healing-fail-broken: "§cThis part is destroyed and cannot be treated normally!"
+healing-interrupted: "§cTreatment interrupted."
+
+surgery-start: "§cSurgery started... ({duration} seconds)"
+surgery-complete: "§aSurgery complete! The part has been stabilized."
+surgery-fail-not-broken: "§eThis part is not destroyed."

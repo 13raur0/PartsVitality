@@ -1,0 +1,109 @@
+# RealisticDamage Plugin Configuration
+
+# Language setting (e.g., en, ja)
+# Corresponds to messages_en.yml, messages_ja.yml
+language: "en"
+
+# Max HP for each body part
+parts:
+  head:
+    max-hp: 20.0
+  chest:
+    max-hp: 29.0
+  legs:
+    max-hp: 27.0
+  feet:
+    max-hp: 24.0
+
+# Damage calculation settings
+damage:
+  # Multiplier to convert heart damage to part damage.
+  damage-multiplier: 5.0
+  # Precision of the hit detection (Ray Tracing). Larger values reduce server load but decrease accuracy. (Recommended: 0.1 ~ 0.5)
+  ray-trace-step: 0.1
+
+# Settings for regular healing
+healing:
+  # Time required for healing (in seconds).
+  duration-seconds: 3
+  # Sound played during healing.
+  sound:
+    name: "BLOCK_WOOL_PLACE"
+    volume: 1.0
+    pitch: 1.5
+    # Sound interval in ticks (20 ticks = 1 second).
+    interval-ticks: 10
+  # Sound played upon healing completion.
+  complete-sound:
+    name: "ENTITY_PLAYER_LEVELUP"
+    volume: 0.7
+    pitch: 1.5
+
+# Settings for surgery (healing broken parts)
+surgery:
+  # Time required for surgery (in seconds).
+  duration-seconds: 10
+  # Sound played during surgery.
+  sound:
+    name: "BLOCK_ANVIL_USE"
+    volume: 0.5
+    pitch: 1.8
+    # Sound interval in ticks (20 ticks = 1 second).
+    interval-ticks: 20
+  # Sound played upon surgery completion.
+  complete-sound:
+    name: "BLOCK_BEACON_ACTIVATE"
+    volume: 0.8
+    pitch: 1.5
+  # Amount of part HP restored by surgery.
+  # Setting this to 1.0 will make the broken part usable again and allow normal healing.
+  restored-hp: 1.0
+
+# Max health penalty for each broken part (2.0 = 1 heart).
+health-penalty-per-broken-part: 5.0 # 2.5 hearts
+
+# Items used for regular healing and their heal amount.
+# Specify item by Material name (e.g., IRON_INGOT, DIAMOND).
+healing-items:
+  IRON_INGOT: 10.0
+  GOLD_INGOT: 15.0
+
+# Items used for surgery (only usable on parts with 0 HP).
+# The value is currently unused but is kept for future expansion.
+surgery-items:
+  DIAMOND: true
+
+# Debuffs applied when a part's HP falls below a certain threshold.
+# Specify debuffs by PotionEffectType name.
+# 'level' is the potion level (0 = Level I, 1 = Level II, ...).
+debuffs:
+  head:
+    - threshold: 0.5 # 50% or less
+      effect: CONFUSION
+      level: 0
+    - threshold: 0.2 # 20% or less
+      effect: CONFUSION
+      level: 1
+  chest:
+    - threshold: 0.5
+      effect: HUNGER
+      level: 0
+    - threshold: 0.2
+      effect: HUNGER
+      level: 1
+  legs_and_feet:
+    - threshold: 0.5
+      effect: SLOW
+      level: 0
+    - threshold: 0.2
+      effect: SLOW
+      level: 1
+
+# Durability settings
+durability:
+  # If true, armor durability decreases based on the amount of part damage received.
+  # If false, it reverts to the vanilla behavior (1 durability per hit).
+  use-custom-durability-damage: true
+  # How much part damage equals 1 point of durability damage.
+  # Example: 5.0 means 5 part damage reduces durability by 1.
+  damage-per-durability-point: 0.4

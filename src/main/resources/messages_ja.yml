@@ -1,0 +1,17 @@
+# 日本語メッセージ for RealisticDamage
+
+plugin-enabled: "§aRealisticDamageが有効になりました！"
+plugin-disabled: "§cRealisticDamageが無効になりました。"
+
+inventory-display-part-hp: "§e部位HP表示に切り替えました。"
+inventory-display-durability: "§a防具の耐久値表示に切り替えました。"
+
+healing-start: "§a治療を開始します...（{duration}秒）"
+healing-complete: "§a治療が完了しました！"
+healing-fail-healthy: "§eこの部位はすでに健康です！"
+healing-fail-broken: "§cこの部位は破壊されており、通常の治療はできません！"
+healing-interrupted: "§c治療を中断しました。"
+
+surgery-start: "§c手術を開始します...（{duration}秒）"
+surgery-complete: "§a手術が完了し、部位が応急処置されました！"
+surgery-fail-not-broken: "§eこの部位は破壊されていません。"

@@ -4,6 +4,8 @@
 
 PartsVitality completely overhauls Minecraft's standard health system by introducing a detailed part-based HP system. This plugin demands more tactical thinking, careful injury management, and a new level of awareness from players. Deciding which body part to target and which to protect, constantly monitoring your own condition and surroundings, and engaging in tense gameplay where a single moment of carelessness can be fatal becomes crucial.
 
+> [!NOTE] > **No Resource Pack Required!** All features, including the part HP display, are achieved using vanilla mechanics. Players don't need to download anything extra to get the full experience.
+
 ## Key Features
 
 - **Part-Based HP System**: Health is not a single bar but is managed individually across four body parts: "Head," "Chest," "Legs," and "Feet."
@@ -16,7 +18,6 @@ PartsVitality completely overhauls Minecraft's standard health system by introdu
   - **Part-Specific Healing**: Use items defined in `config.yml` to heal by clicking the corresponding armor piece for the injured part in the inventory.
   - **Surgery for Critical Injuries**: "Broken" parts cannot be healed with regular items. A special "surgery" item is required for first aid, making the part treatable again.
 - **Enhanced Importance of Armor**:
-- **No Resource Pack Required**: All visual feedback, including the part HP display, is achieved using vanilla mechanics. This means players don't need to download anything extra to get the full experience!
   - **Part Protection**: Armor plays a crucial role in protecting the specific body part it covers.
   - **Realistic Wear and Tear**: Armor durability can be configured to decrease significantly based on the damage received, making it a critical resource to manage.
 - **Highly Customizable**: Nearly every aspect of the plugin—part HP, damage multipliers, healing items, debuffs, and more—can be freely adjusted in `config.yml`.
